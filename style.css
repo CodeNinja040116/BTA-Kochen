@@ -1,0 +1,233 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    line-height:1.4;
+}
+
+body
+{ 
+    margin: 0;
+background-color: white;
+}
+
+/* Alle Links in einer Navigation sind schwarz, nicht unterstrichen und in fetten Großbuchstaben */
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Bullets der Navigationsliste sollen verschwinden */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*Logogröße verändern */
+#logo {
+    height: 40px;
+}
+
+/* Buttonumrandung der Burgerbuttons in der Navigationsleiste bzw. Header entfernen */
+header button{
+    border: none;
+    background-color: transparent;
+}
+
+/* Navigation im Header auf Smartphone ausblenden */    
+header nav{
+    display: none;
+}
+
+/* Navi über Button im Smartphone einblenden */
+.show{
+    display: block;
+}
+
+header{
+    /* Stellt alle Kinder nebeneinander (Logo und Navi-Links) */
+    display: flex;
+    justify-content: space-between; /* regelt x-Achse */
+    align-items: center; /* positioniert alle Inhalte im Header mittig */
+    height: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.hero{
+    background-image: url(img/intro.jpg);
+    background-repeat: no; /* das Hintergrundbild wiederholt sich nicht in die Unendlichkeit (gemäß der Größe des Viewports */
+    background-size: cover; /* das Hintergrundbild füllt den Viewport aus und verändert sich responsiv */
+    background-position: center; /* zentriert das Bild */
+    height: 100vh; /* Höhe des Viewports; min-height: 800px könnte man auch nehmen*/
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+}
+
+h2{
+    text-align: center;
+}
+
+.button{
+    background: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #374a67;
+    border: 1px solid #374a67;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.6s linear; /* bei Hover gibt es einen 0.6-sekündigen Übergang zur neuen Gestaltung des Buttons */
+}
+
+/* Klassen mit : sind Pseudoklassen */
+.button:hover, .blue{ /* Button ändert sich, wenn der Mauszeiger drüberschwebt */
+    color: white;
+    background: #374a67;
+}
+
+.blue{
+        color: white;
+        background: #374a67;
+        display: block;
+        margin: 15px 15px 0 15px;
+}
+
+.blue:hover{
+    color: #374a67;
+    background: white;
+    border: 2px solid #374a67;
+}
+
+.card{
+    border-radius:5px;
+    -webkit-box-shadow: 0px 0px 10px 5px grey; 
+    box-shadow: 5px 5px 10px 5px grey;
+    margin: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+/* Responsive Bilder */
+.card img{
+    width: 100%
+}
+
+.card p, 
+.card h3{
+    margin: 0 15px;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:#04122b;
+    color: white;
+    padding: 3rem 1rem;
+}
+
+input{
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #374a67;
+}
+
+input:focus{
+    outline: 2px dotted yellow;
+}
+
+form{
+    display: flex;
+}
+
+form .button{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+::placeholder{
+    color: grey;
+}
+
+::selection{
+    color: white;
+    background: #374a67;
+}
+
+.social ul{
+    display:flex;
+    gap: 10px;
+}
+
+footer{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* Media Query für große Geräte und größer damit Navigationsleiste mit Menu angezeigt wird */
+@media (min-width: 1140px) {
+    header nav {
+        display: block; /* Button wird eingeblendet */
+    }
+
+    /* Header Button soll bei großen Geräten verschwinden */
+    header button{
+        display: none; /* Button wird ausgeblendet */
+    }
+
+    /* body{
+        background-color: yellow;
+    } */
+
+
+    /* Auf einem großen Gerät soll die Standardschriftgröße 20px sein */
+    html{
+        font-size: 20px;
+    }
+
+    nav li{
+        margin-left: 16px;
+    }
+
+    /* Stellt die Navigationslinks nebeneinander */
+    nav ul{
+        display: flex;
+    }
+
+    /* Stellt alle Cards im Article nebeneinander */
+    .article{
+        display:flex;
+    }
+
+    /* Stellt den Footer in eine Linie: Links auf die linke Seite, Icons auf die rechte. */
+
+    footer{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items: center;
+    align-content:stretch;
+    padding: 30px 50px;
+}
+
+}
